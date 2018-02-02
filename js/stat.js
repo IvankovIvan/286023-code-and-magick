@@ -1,4 +1,5 @@
 'use strict';
+
 var FONT = '16px PT Mono';
 var COLOR_TEXT = '#000';
 var CLOUD_WIDTH = 420;
