@@ -33,17 +33,18 @@ var getWizards = function (number) {
   return wizards;
 };
 
-var getElementSelector = function (element, selector) {
-  return element.querySelector(selector);
+var renderWizard = function (wizard) {
+  elementSelectorSetupSimilarLabel.textContent = wizard.name;
+  elementSelectorWizardCoat.style.fill = wizard.coatColor;
+  elementSelectorWizardEyes.style.fill = wizard.eyesColor;
+  return wizardElement.cloneNode(true);
 };
 
-var renderWizard = function (wizard) {
-  var wizardElement = similarWizardTemplate.cloneNode(true);
-  getElementSelector(wizardElement, '.setup-similar-label').textContent = wizard.name;
-  getElementSelector(wizardElement, '.wizard-coat').style.fill = wizard.coatColor;
-  getElementSelector(wizardElement, '.wizard-eyes').style.fill = wizard.eyesColor;
-  return wizardElement;
-};
+var wizardElement = similarWizardTemplate.cloneNode(true);
+var elementSelectorSetupSimilarLabel = wizardElement.querySelector('.setup-similar-label');
+var elementSelectorWizardCoat = wizardElement.querySelector('.wizard-coat');
+var elementSelectorWizardEyes = wizardElement.querySelector('.wizard-eyes');
+
 
 var userDialog = document.querySelector('.setup');
 userDialog.classList.remove('hidden');
