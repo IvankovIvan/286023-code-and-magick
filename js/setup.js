@@ -78,9 +78,15 @@ var closePopup = function () {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-var drawElementRandomColorFromArray = function (element, arr) {
-  element.style.fill = arr[getRandomInteger(arr.length - 1)];
+var drawElementRandomColorFromArray = function (element, property, arr) {
+  var value = arr[getRandomInteger(arr.length - 1)];
+  if (property === 'fill') {
+    element.style.fill = value;
+  } else if (property === 'backgroundColor') {
+    element.style.backgroundColor = value;
+  }
 };
+
 setupOpen.addEventListener('click', function () {
   openPopup();
 });
@@ -106,16 +112,16 @@ var setupWizard = document.querySelector('.setup-player');
 // смена цвета мантии
 var wizardCoat = setupWizard.querySelector('.wizard-coat');
 wizardCoat.addEventListener('click', function () {
-  drawElementRandomColorFromArray(wizardCoat, COAT_COLORS);
+  drawElementRandomColorFromArray(wizardCoat, 'fill', COAT_COLORS);
 });
 
 // смена цвета глаз волшебника
 var wizardEyes = setupWizard.querySelector('.wizard-eyes');
 wizardEyes.addEventListener('click', function () {
-  drawElementRandomColorFromArray(wizardEyes, EYES_COLORS);
+  drawElementRandomColorFromArray(wizardEyes, 'fill', EYES_COLORS);
 });
 
 var wizardFireball = setupWizard.querySelector('.setup-fireball-wrap');
 wizardFireball.addEventListener('click', function () {
-  wizardFireball.style.backgroundColor = FIREBALL_COLORS[getRandomInteger(FIREBALL_COLORS.length - 1)];
+  drawElementRandomColorFromArray(wizardFireball, 'backgroundColor', FIREBALL_COLORS);
 });
