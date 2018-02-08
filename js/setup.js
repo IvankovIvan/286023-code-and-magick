@@ -48,9 +48,7 @@ var elementSelectorSetupSimilarLabel = wizardElement.querySelector('.setup-simil
 var elementSelectorWizardCoat = wizardElement.querySelector('.wizard-coat');
 var elementSelectorWizardEyes = wizardElement.querySelector('.wizard-eyes');
 
-
 var userDialog = document.querySelector('.setup');
-//
 var wizards = getWizards(WIZARDS_COUNT);
 var fragment = document.createDocumentFragment();
 
@@ -80,6 +78,9 @@ var closePopup = function () {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
+var selectValueRandomFromArray = function (arr) {
+  return arr[getRandomInteger(arr.length - 1)];
+};
 setupOpen.addEventListener('click', function () {
   openPopup();
 });
@@ -105,16 +106,16 @@ var setupWizard = document.querySelector('.setup-player');
 // смена цвета мантии
 var wizardCoat = setupWizard.querySelector('.wizard-coat');
 wizardCoat.addEventListener('click', function () {
-  wizardCoat.style.fill = COAT_COLORS[getRandomInteger(COAT_COLORS.length - 1)];
+  wizardCoat.style.fill = selectValueRandomFromArray(COAT_COLORS);
 });
 
 // смена цвета глаз волшебника
 var wizardEyes = setupWizard.querySelector('.wizard-eyes');
 wizardEyes.addEventListener('click', function () {
-  wizardEyes.style.fill = EYES_COLORS[getRandomInteger(EYES_COLORS.length - 1)];
+  wizardEyes.style.fill = selectValueRandomFromArray(EYES_COLORS);
 });
 
 var wizardFireball = setupWizard.querySelector('.setup-fireball-wrap');
 wizardFireball.addEventListener('click', function () {
-  wizardFireball.style.backgroundColor = FIREBALL_COLORS[getRandomInteger(FIREBALL_COLORS.length - 1)];
+  wizardFireball.style.backgroundColor = selectValueRandomFromArray(FIREBALL_COLORS);
 });
