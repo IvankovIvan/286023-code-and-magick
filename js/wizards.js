@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-
   var wizards = [];
   for (var i = 0; i < window.const.WIZARDS_COUNT; i++) {
     wizards[i] = window.wizard.getNew();
@@ -15,10 +14,3 @@
   });
   similarListElement.appendChild(fragment);
 })();
-
-
-
-
-
-
-

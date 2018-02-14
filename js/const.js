@@ -1,7 +1,7 @@
 'use strict';
 
-(function () {
-  window.const = {
+window.const = (function () {
+  return {
     WIZARDS_COUNT: 4
-  }
+  };
 })();
