@@ -1,6 +1,6 @@
 'use strict';
 
-window.util = (function () {
+(function () {
   var ESC_KEYCODE = 27;
   var ENTER_KEYCODE = 13;
 
@@ -18,7 +18,7 @@ window.util = (function () {
     return maxValue;
   };
 
-  return {
+  window.util = {
     getRandomInteger: getRandomNumber,
     isEscEvent: function (evt, action) {
       if (evt.keyCode === ESC_KEYCODE) {
