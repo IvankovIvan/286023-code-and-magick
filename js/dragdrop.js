@@ -36,5 +36,5 @@
         document.addEventListener('mouseup', onMouseUp);
       });
     }
-  }
+  };
 })();
