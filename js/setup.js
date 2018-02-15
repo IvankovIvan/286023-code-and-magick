@@ -45,38 +45,23 @@
   });
 
   var setupUserPic = setup.querySelector('.setup-user-pic');
-  setupUserPic.addEventListener('mousedown', function (evt) {
-    evt.preventDefault();
+  window.dragdrop.create(setupUserPic, setup);
 
-    var startCoords = {
-      x: evt.clientX,
-      y: evt.clientY
-    };
-
-    var onMouseMove = function (moveEvt) {
-      moveEvt.preventDefault();
-      var shift = {
-        x: startCoords.x - moveEvt.clientX,
-        y: startCoords.y - moveEvt.clientY
-      };
-      startCoords = {
-        x: moveEvt.clientX,
-        y: moveEvt.clientY
-      };
-
-      setup.style.top = (setup.offsetTop - shift.y) + 'px';
-      setup.style.left = (setup.offsetLeft - shift.x) + 'px';
-    };
-
-    var onMouseUp = function (upEvt) {
-      upEvt.preventDefault();
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-    };
-
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
-  });
+  // Путь останеться я потом сделаю
+  // var setupArtifactsShop = setup.querySelector('.setup-artifacts-shop');
+  // setupArtifactsShop.style.border = 'thin solid red';
+  // console.log(setupArtifactsShop);
+  // setupArtifactsShop.addEventListener('mousedown', function (evt) {
+  //   evt.preventDefault();
+  //   if (!evt.target.draggable) {
+  //     return;
+  //   }
+  //
+  //
+  //
+  //   console.log(evt.target, evt.currentTarget);
+  //
+  // });
 })();
 
 
