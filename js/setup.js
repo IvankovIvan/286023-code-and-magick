@@ -2,6 +2,11 @@
 
 (function () {
   var setup = document.querySelector('.setup');
+  var setupMainCoordsSetup = {
+    x: setup.style.left,
+    y: setup.style.top
+  };
+
   setup.querySelector('.setup-similar').classList.remove('hidden');
 
   var setupOpen = document.querySelector('.setup-open');
@@ -12,6 +17,8 @@
   };
 
   var openPopup = function () {
+    setup.style.left = setupMainCoordsSetup.x;
+    setup.style.top = setupMainCoordsSetup.y;
     setup.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
   };
@@ -59,6 +66,12 @@
 
       setup.style.top = (setup.offsetTop - shift.y) + 'px';
       setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+    };
+
+    var onMouseUp = function (upEvt) {
+      upEvt.preventDefault();
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
     };
 
     document.addEventListener('mousemove', onMouseMove);
