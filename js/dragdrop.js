@@ -12,10 +12,10 @@
         };
 
         var rect = mainWindow.getBoundingClientRect();
-        var right = rect.right;
-        var bottom = rect.bottom;
-        var width = window.innerWidth;
-        var height = window.innerHeight;
+        var width = rect.right - rect.left;
+        var height = rect.bottom - rect.top;
+        var widthWindow = window.innerWidth;
+        var heightWindow = window.innerHeight;
 
         var onMouseMove = function (moveEvt) {
           moveEvt.preventDefault();
@@ -29,16 +29,15 @@
           var x = mainWindow.offsetLeft - shift.x;
           if (x < 0) {
             x = 0;
-          } else if (right >= width) {
-            x = mainWindow.offsetLeft - 1;
-
+          } else if (width + moveEvt.clientX >= widthWindow) {
+            x = mainWindow.offsetLeft;
           }
 
           var y = (mainWindow.offsetTop - shift.y);
           if (y < 0) {
             y = 0;
-          } else if (bottom >= height) {
-            y = mainWindow.offsetTop - 1;
+          } else if (height + moveEvt.clientY >= heightWindow) {
+            y = mainWindow.offsetTop;
           }
 
           startCoords = {
