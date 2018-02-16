@@ -11,6 +11,12 @@
           y: evt.clientY
         };
 
+        var rect = mainWindow.getBoundingClientRect();
+        var right = rect.right;
+        var bottom = rect.bottom;
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+
         var onMouseMove = function (moveEvt) {
           moveEvt.preventDefault();
 
@@ -19,21 +25,20 @@
             y: startCoords.y - moveEvt.clientY
           };
 
-          var rect = mainWindow.getBoundingClientRect();
+
           var x = mainWindow.offsetLeft - shift.x;
-          if (mainWindow.offsetLeft - shift.x < 0) {
+          if (x < 0) {
             x = 0;
-          } else if (rect.right >= window.innerWidth) {
+          } else if (right >= width) {
             x = mainWindow.offsetLeft - 1;
 
           }
 
           var y = (mainWindow.offsetTop - shift.y);
-          if (mainWindow.offsetTop - shift.y < 0) {
+          if (y < 0) {
             y = 0;
-          } else if (rect.bottom >= window.innerHeight) {
+          } else if (bottom >= height) {
             y = mainWindow.offsetTop - 1;
-
           }
 
           startCoords = {
