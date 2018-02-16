@@ -21,6 +21,8 @@
     setup.style.top = setupMainCoordsSetup.y;
     setup.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
+    var setupUserPic = setup.querySelector('.setup-user-pic');
+    window.dragdrop.create(setupUserPic, setup);
   };
 
   var closePopup = function () {
@@ -43,9 +45,6 @@
   setupClose.addEventListener('keydown', function (evt) {
     window.util.isEnterEvent(evt, closePopup);
   });
-
-  var setupUserPic = setup.querySelector('.setup-user-pic');
-  window.dragdrop.create(setupUserPic, setup);
 
   // Путь останеться я потом сделаю
   // var setupArtifactsShop = setup.querySelector('.setup-artifacts-shop');
