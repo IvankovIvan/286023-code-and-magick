@@ -1,8 +1,10 @@
 'use strict';
 
 (function () {
-  var ESC_KEYCODE = 27;
-  var ENTER_KEYCODE = 13;
+  var Code = {
+    ESC: 27,
+    ENTER: 13
+  };
 
   var getRandomNumber = function (length) {
     return Math.floor(Math.random() * length);
@@ -45,13 +47,13 @@
   window.util = {
     getRandomInteger: getRandomNumber,
     isEscEvent: function (evt, action) {
-      if (evt.keyCode === ESC_KEYCODE) {
+      if (evt.keyCode === Code.ESC) {
         action();
       }
     },
     getMaximumValue: getMaximumValue,
     isEnterEvent: function (evt, action) {
-      if (evt.keyCode === ENTER_KEYCODE) {
+      if (evt.keyCode === Code.ENTER) {
         action();
       }
     },
@@ -62,6 +64,7 @@
       } else {
         element.style.fill = value;
       }
+      return value;
     },
     getRandomIntegerArray: getRandomIntegerArray,
     errorHandler: createErrorHandler

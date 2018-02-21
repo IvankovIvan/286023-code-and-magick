@@ -19,7 +19,7 @@
   var showSetup = function (arrayWizard) {
     setup.style.left = setupMainCoordsSetup.x;
     setup.style.top = setupMainCoordsSetup.y;
-    window.wizard.renderList(arrayWizard);
+    window.wizard.addWizardList(arrayWizard);
     setup.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
     var setupUserPic = setup.querySelector('.setup-user-pic');
